@@ -72,7 +72,8 @@ button:focus {
  * Header
  */
 
-.nav-masthead a.nav-link {
+.nav-masthead a.nav-link,
+.nav-masthead li.nav-link {
 	padding: .25rem 0;
 	font-weight: 700;
 	color: rgba(255, 255, 255, .5);
@@ -89,6 +90,7 @@ button:focus {
 	margin-left: 1rem;
 }
 
+.nav-masthead li.nav-link.active,
 .nav-masthead a.nav-link.active {
 	color: #fff;
 	border-bottom-color: #fff;

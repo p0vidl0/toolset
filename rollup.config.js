@@ -1,12 +1,13 @@
+import css from 'rollup-plugin-css-only';
 import svelte from 'rollup-plugin-svelte';
+import replace from '@rollup/plugin-replace';
+import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
+import { baseUrl } from 'rollup-plugin-base-url';
+import sveltePreprocess from 'svelte-preprocess';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
-import { terser } from 'rollup-plugin-terser';
-import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
-import replace from '@rollup/plugin-replace';
-import css from 'rollup-plugin-css-only';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -79,7 +80,11 @@ export default {
 
 		// If we're building for production (npm run build
 		// instead of npm run dev), minify
-		production && terser()
+		production && terser(),
+		baseUrl({
+			url: '/toolset', // the base URL prefix; optional, defaults to /
+			staticImports: true, // also rebases static `import _ from "…"`; optional, defaults to false
+		}),
 	],
 	watch: {
 		clearScreen: false
