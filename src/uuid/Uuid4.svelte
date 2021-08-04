@@ -1,29 +1,31 @@
-<script lang="ts">
+<script lang="ts" xmlns="http://www.w3.org/1999/html">
   import { v4 as uuid } from 'uuid';
-  import {
-    Icon,
-    Button,
-  } from 'sveltestrap';
 
   let id = uuid();
 
-  function generateUuid() {
+  const generateUuid = () => {
     id = uuid();
-  }
+  };
 
-  function copy() {
+  const copy = () => {
     navigator.clipboard.writeText(id);
-  }
+    isOpen = true;
+    setTimeout(() => isOpen = false, 500);
+  };
+
+  let isOpen = false;
 </script>
 
 <div>
-    <p on:click={copy}>
+    <p class="result-string" on:click={copy}>
         {id}
+        <span id="dummy"></span>
     </p>
-    <Button color="primary" outline on:click={generateUuid}>
-        Renew
-    </Button>
+    <input type="button" on:click={generateUuid} value="Renew" />
 </div>
 
 <style>
+    .result-string {
+        cursor: pointer;
+    }
 </style>

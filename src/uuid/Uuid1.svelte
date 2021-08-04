@@ -1,9 +1,5 @@
 <script lang="ts">
   import { v1 as uuid } from 'uuid';
-  import {
-    Icon,
-    Button,
-  } from 'sveltestrap';
 
   let id = uuid();
 
@@ -17,16 +13,10 @@
 </script>
 
 <div>
-    <Button color="primary" outline on:click={generateUuid}>
-        Renew
-    </Button>
+    <input type="button" on:click={generateUuid} value="Renew" />
 
     <p>
         {id}
-        <Button on:click={copy}>
-            <Icon name="clipboard-plus"/>
-            Copy
-        </Button>
     </p>
 </div>
 

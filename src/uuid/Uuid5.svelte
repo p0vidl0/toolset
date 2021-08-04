@@ -1,9 +1,5 @@
 <script lang="ts">
   import { v5 } from 'uuid';
-  import {
-    Icon,
-    Button,
-  } from 'sveltestrap';
   const uuid = () => v5('hi', '1b671a64-40d5-491e-99b0-da01ff1f3341');
 
   let id = uuid();
@@ -22,9 +18,6 @@
     <p on:click={copy}>
         {id}
     </p>
-    <Button color="primary" outline on:click={generateUuid}>
-        Renew
-    </Button>
 </div>
 
 <style>
