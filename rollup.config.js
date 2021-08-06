@@ -75,7 +75,8 @@ export default {
 			inlineSources: !production
 		}),
 		replace({
-			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+			'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+			preventAssignment: true,
 		}),
 
 		// In dev mode, call `npm run start` once

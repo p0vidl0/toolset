@@ -1,10 +1,11 @@
-<script lang="ts" xmlns="http://www.w3.org/1999/html">
-  import { v4 as uuid } from 'uuid';
+<script lang="ts">
+  import { generateUuidV4 } from './helpers';
 
-  let id = uuid();
+  export let active: boolean;
+  let id = generateUuidV4();
 
   const generateUuid = () => {
-    id = uuid();
+    id = generateUuidV4();
   };
 
   const copy = () => {
@@ -16,16 +17,17 @@
   let isOpen = false;
 </script>
 
-<div>
-    <p class="result-string" on:click={copy}>
+{#if active}
+<div class="flex-grow1">
+    <p class="cursor-pointer select-all" on:click={copy}>
         {id}
         <span id="dummy"></span>
     </p>
     <input type="button" on:click={generateUuid} value="Renew" />
 </div>
+{:else}
+<div>UUIDv4</div>
+{/if}
 
 <style>
-    .result-string {
-        cursor: pointer;
-    }
 </style>

@@ -1,25 +1,16 @@
 <script lang="ts">
-  import * as uuid from 'uuid';
-  let id = uuid.v4();
-
-  function generateUuid() {
-    id = uuid.v4();
-  }
-
-  function copy() {
-    navigator.clipboard.writeText(id);
-  }
+  import Uuid from './home/Uuid.svelte';
+  import NanoId from './home/NanoId.svelte';
 
 </script>
 
-<div>
-    <h1>Home</h1>
-
-    <input type="button" color="primary" outline on:click={generateUuid} value="Renew"/>
-
-    <p>
-        {id}
-    </p>
+<div class="grid grid-flow-row md:grid-cols-2 grid-cols-1 gap-4">
+    <div class="bg-green-200 rounded">
+        <Uuid />
+    </div>
+    <div class="bg-green-200 rounded">
+        <NanoId />
+    </div>
 </div>
 
 <style>

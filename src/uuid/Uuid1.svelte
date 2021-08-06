@@ -1,10 +1,12 @@
 <script lang="ts">
-  import { v1 as uuid } from 'uuid';
+  import { generateUuidV1 } from './helpers';
 
-  let id = uuid();
+  export let active: boolean;
+
+  let id = generateUuidV1();
 
   function generateUuid() {
-    id = uuid();
+    id = generateUuidV1();
   }
 
   function copy() {
@@ -12,13 +14,17 @@
   }
 </script>
 
-<div>
-    <input type="button" on:click={generateUuid} value="Renew" />
+{#if active}
+    <div>
+        <input type="button" on:click={generateUuid} value="Renew" />
 
-    <p>
-        {id}
-    </p>
-</div>
+        <p class="cursor-pointer select-all">
+            {id}
+        </p>
+    </div>
+{:else}
+    <div>UUIDv1</div>
+{/if}
 
 <style>
 </style>

@@ -3,6 +3,6 @@
     export let path = '/';
 </script>
 
-<li class="sm:inline-block">
+<li class="nav-item">
     <a class="{`p-3 hover:text-red-900${path === $location ? ' active' : ''}`}" href="#{path}"><slot /></a>
 </li>
