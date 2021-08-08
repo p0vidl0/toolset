@@ -2,12 +2,13 @@
   import Router from 'svelte-spa-router';
   import { routes } from './routes';
   import NavLink from './Link.svelte';
+  import Toast from './toast/Toast.svelte';
 </script>
 
 <div class="container max-w-screen-lg bg-gray-100 min-h-screen mx-auto flex flex-col h-screen justify-between px-8 py-4 space-y-4">
     <header class="">
         <nav class="">
-            <div class="bg-green-500 p-3 py-2 relative rounded">
+            <div class="bg-green-500 bg-header-texture p-3 py-2 relative rounded">
                 <div class="font-mono font-black absolute -top-3 -left-3 bg-gray-300 p-1 px-3 rounded"><a href="#/">Toolset</a></div>
                 <ul class="ml-16 flex gap-4">
                     <NavLink path="/uuid">UUID</NavLink>
@@ -26,6 +27,8 @@
         </div>
     </footer>
 </div>
+
+<Toast />
 
 <style global lang="postcss">
     @tailwind base;
