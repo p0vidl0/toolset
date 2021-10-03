@@ -1,41 +1,41 @@
 <script lang="ts">
-  import { Styles, Nav } from 'sveltestrap';
-  import { Router, Route } from 'svelte-routing';
-  import Home from './Home.svelte';
-  import Uuid from './Uuid.svelte';
-  import Nanoid from './Nanoid.svelte';
-  import NavLink from './NavLink.svelte';
-
-  export let url = '/uuid';
+  import Router from 'svelte-spa-router';
+  import { routes } from './routes';
+  import NavLink from './Link.svelte';
+  import Toast from './toast/Toast.svelte';
 </script>
 
-<Router url="{url}">
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header class="mb-auto">
-            <div>
-                <h3 class="float-md-start mb-0">Utils</h3>
-                <Nav class="nav-masthead justify-content-center float-md-end">
-                    <NavLink className="nav-link" to="/">Home</NavLink>
-                    <NavLink className="nav-link" to="uuid">Uuid</NavLink>
-                    <NavLink className="nav-link" to="nanoid">Nanoid</NavLink>
-                </Nav>
+<div class="container max-w-screen-lg bg-gray-100 min-h-screen mx-auto flex flex-col h-screen justify-between px-8 py-4 space-y-4">
+    <header class="">
+        <nav class="">
+            <div class="bg-green-500 bg-header-texture p-3 py-2 relative rounded">
+                <div class="font-mono font-black absolute -top-3 -left-3 bg-gray-300 p-1 px-3 rounded"><a href="#/">Toolset</a></div>
+                <ul class="ml-16 flex gap-4">
+                    <NavLink path="/uuid">UUID</NavLink>
+                    <NavLink path="/nanoid">Nano ID</NavLink>
+                    <NavLink path="/date">Date</NavLink>
+                </ul>
             </div>
-        </header>
-        <main class="px-3">
-            <div>
-                <Route path="/" component="{Home}"/>
-                <Route path="uuid" component="{Uuid}"/>
-                <Route path="nanoid" component="{Nanoid}"/>
-            </div>
-        </main>
-        <footer class="mt-auto text-white-50">
-            <p>Made with <a href="https://svelte.dev/" class="text-white">Svelte</a> with ❤️</p>
-        </footer>
-    </div>
-</Router>
+        </nav>
+    </header>
+    <main class="flex flex-row flex-grow">
+        <Router {routes}/>
+    </main>
+    <footer>
+        <div class="bg-green-500 p-3 py-2 relative rounded text-center text-cyan-50">
+            Made with <a href="https://svelte.dev">Svelte</a>, <a href="https://tailwindcss.com">Tailwind CSS</a> and ❤️
+        </div>
+    </footer>
+</div>
 
-<Styles/>
+<Toast />
 
-<style>
+<style global lang="postcss">
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
 
+    .nav-item {
+        @apply text-gray-50 font-bold font-mono cursor-pointer p-2 rounded hover:bg-green-600;
+    }
 </style>
