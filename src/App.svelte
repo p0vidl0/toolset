@@ -38,4 +38,20 @@
     .nav-item {
         @apply text-gray-50 font-bold font-mono cursor-pointer p-2 rounded hover:bg-green-600;
     }
+
+    .uuid-title {
+        @apply bg-blue-100 p-2 my-1 cursor-pointer;
+    }
+
+    .uuid-title-active {
+        @apply bg-blue-200;
+    }
+
+    .uuid-container {
+        @apply p-2 flex flex-row space-x-2;
+    }
+
+    .header {
+        @apply text-lg font-medium;
+    }
 </style>

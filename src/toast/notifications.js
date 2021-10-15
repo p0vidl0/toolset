@@ -1,5 +1,5 @@
 import { writable, derived } from "svelte/store"
-import { generateNanoId } from '../nanoid/helpers';
+import { generateNanoId } from '../sections/nanoid/helpers';
 
 const TIMEOUT = 1000
 

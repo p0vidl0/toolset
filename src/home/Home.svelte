@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Uuid from './Uuid.svelte';
-  import NanoId from './NanoId.svelte';
+  import Uuid from './widgets/Uuid.svelte';
+  import NanoId from './widgets/NanoId.svelte';
 
 </script>
 
