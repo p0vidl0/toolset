@@ -11,6 +11,7 @@
             <nav class="">
                 <div class="tui-tabs">
                     <ul class="">
+                        <NavLink path="/">Home</NavLink>
                         <NavLink path="/uuid">UUID</NavLink>
                         <NavLink path="/nanoid">Nano ID</NavLink>
                         <NavLink path="/date">Date</NavLink>
