@@ -3,25 +3,31 @@
   import NanoId from './widgets/NanoId.svelte';
 
 </script>
-
-<div class="grid grid-flow-row md:grid-cols-2 grid-cols-1 gap-4">
-    <div class="bg-gray-200 rounded h-28">
-        <div class="relative">
-            <div class="font-mono font-black absolute -top-3 -left-3 bg-gray-300 p-1 px-3 rounded">UUID</div>
+<div class="flex-grow">
+    <div class="row mt-6">
+        <div class="col s12 m12 l6 flex">
+            <div class="tui-window flex-grow">
+                <fieldset class="tui-fieldset">
+                    <legend class="px-1">UUID</legend>
+                    <a href="#/uuid" class="tui-fieldset-button"><span class="green-255-text">↕</span></a>
+                    <div class="">
+                        <Uuid />
+                    </div>
+                </fieldset>
+            </div>
         </div>
-        <div class="mt-6">
-            <Uuid />
+        <div class="col s12 m12 l6 flex">
+            <div class="tui-window flex-grow">
+                <fieldset class="tui-fieldset">
+                    <legend class="px-1"> Nano ID </legend>
+                    <a href="#/nanoid" class="tui-fieldset-button"><span class="green-255-text">↕</span></a>
+                    <div class="">
+                        <NanoId />
+                    </div>
+                </fieldset>
+            </div>
         </div>
-    </div>
-    <div class="bg-gray-200 rounded h-28">
-        <div class="relative">
-            <div class="font-mono font-black absolute -top-3 -left-3 bg-gray-300 p-1 px-3 rounded">Nano ID</div>
-        </div>
-        <div class="mt-6">
-            <NanoId />
-        </div>
-    </div>
-</div>
+    </div></div>
 
 <style>
 </style>

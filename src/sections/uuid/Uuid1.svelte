@@ -3,7 +3,7 @@
   import { notifications } from '../../toast/notifications.js';
 
   const minCount = 1;
-  const maxCount = 8;
+  const maxCount = 250;
 
   export let active: boolean;
   let ids = [''];
@@ -24,31 +24,43 @@
   updateUuid();
 </script>
 
-<div class="uuid-title">UUIDv1</div>
-{#if active}
-    <div class="uuid-container flex flex-row">
-        <ul on:click={copy}>
-            {#each ids as id, i}
-                <li class="font-mono cursor-pointer">
-                    {id}
-                </li>
-            {/each}
-        </ul>
-        <div class="ml-2">
-            <label title="Number of IDs to generate" class="text-gray-500">
-                Number of IDs to generate:
-                <input
-                        class="font-mono text-black text-center"
-                        bind:value={number}
-                        on:input={() => updateUuid()}
-                        type="number"
-                        min={minCount}
-                        max={maxCount}
-                />
-            </label>
-        </div>
+
+<div class="flex my-4">
+    <div class="tui-window uuid-container1 flex-row flex-grow">
+        <fieldset class="tui-fieldset">
+            <legend class="px-1">UUIDv1</legend>
+            <button class="tui-fieldset-button">
+                <span class="green-255-text">-</span>
+            </button>
+            <div class="container">
+                <div class="row">
+                    <div class="col s6 m6 l6">
+                        <ul on:click={copy} class="tui-scroll-white max-h-32 overscroll-auto overflow-y-scroll">
+                            {#each ids as id, i}
+                                <li class="font-mono cursor-pointer">
+                                    {id}
+                                </li>
+                            {/each}
+                        </ul>
+                    </div>
+                    <div class="col s6 m6 l6">
+                        <label title="Number of IDs to generate" class="">
+                            Number of IDs to generate:
+                            <input
+                                    class="tui-input font-mono text-center"
+                                    bind:value={number}
+                                    on:input={() => updateUuid()}
+                                    type="number"
+                                    min={minCount}
+                                    max={maxCount}
+                            />
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
     </div>
-{/if}
+</div>
 
 <style>
 </style>
